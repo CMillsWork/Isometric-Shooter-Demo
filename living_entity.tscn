@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwe05nik0rv0p"]
+
+[ext_resource type="Script" path="res://LivingEntity.gd" id="1_uuuu0"]
+
+[node name="LivingEntity" type="CharacterBody2D"]
+script = ExtResource("1_uuuu0")
+
+[node name="StunTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="BurningTimer" type="Timer" parent="."]

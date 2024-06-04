@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7c8pxufjgpga"]
+
+[ext_resource type="Script" path="res://environment/MapNode.gd" id="1_xrx1v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_301w8"]
+
+[node name="MapNode" type="Area2D"]
+script = ExtResource("1_xrx1v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_301w8")

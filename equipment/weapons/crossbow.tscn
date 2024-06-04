@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://oju6k0yhb2ae"]
+
+[ext_resource type="Script" path="res://equipment/weapons/Crossbow.gd" id="1_hf7bt"]
+[ext_resource type="Texture2D" uid="uid://ci88sd2mf4bsw" path="res://assets/crossbow/Crossbow.png" id="2_xrixt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtrcb"]
+atlas = ExtResource("2_xrixt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhw05"]
+atlas = ExtResource("2_xrixt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wodwn"]
+atlas = ExtResource("2_xrixt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8088"]
+atlas = ExtResource("2_xrixt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_44x3n"]
+load_path = "res://.godot/imported/Crossbow.png-621e626aa4fd2d381d67a19164fc757f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhqox"]
+atlas = SubResource("CompressedTexture2D_44x3n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_re52r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtrcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhw05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wodwn")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_l8088")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhqox")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8o5m"]
+radius = 101.005
+
+[node name="Crossbow" type="Area2D"]
+script = ExtResource("1_hf7bt")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CrossbowSprite" type="AnimatedSprite2D" parent="WeaponPivot"]
+unique_name_in_owner = true
+position = Vector2(23, 1.90735e-06)
+rotation = 0.787364
+sprite_frames = SubResource("SpriteFrames_re52r")
+animation = &"fire"
+frame = 3
+frame_progress = 1.0
+
+[node name="Muzzle" type="Marker2D" parent="WeaponPivot/CrossbowSprite"]
+unique_name_in_owner = true
+position = Vector2(8.48528, -8.48528)
+rotation = -0.785398
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r8o5m")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.75
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

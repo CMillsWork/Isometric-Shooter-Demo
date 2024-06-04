@@ -1,0 +1,375 @@
+[gd_scene load_steps=15 format=3 uid="uid://nx15haf0jhvc"]
+
+[ext_resource type="Texture2D" uid="uid://cb3s3hb8x4cw8" path="res://assets/characters/grabber_jar.png" id="1_a40da"]
+[ext_resource type="Script" path="res://assets/characters/grabber/grabber.gd" id="1_kgsai"]
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://assets/characters/ground_shadow.png" id="2_qmwcd"]
+[ext_resource type="Texture2D" uid="uid://h2e1ok6rfo03" path="res://assets/characters/Plant Blob.png" id="3_wq3dy"]
+[ext_resource type="Texture2D" uid="uid://o5dtjcv1oxaw" path="res://assets/characters/water_blob.png" id="3_x5bh8"]
+
+[sub_resource type="Curve" id="Curve_emjpk"]
+max_value = 100.0
+_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(0.448485, 13.1705), 0.0, 0.0, 0, 0, Vector2(0.648485, 100), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_msagn"]
+curve = SubResource("Curve_emjpk")
+
+[sub_resource type="Curve" id="Curve_ojuv1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.575904, 0.00919497), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xe2lo"]
+curve = SubResource("Curve_ojuv1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6g23"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 200, 0)
+damping_max = 50.0
+damping_curve = SubResource("CurveTexture_msagn")
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_xe2lo")
+
+[sub_resource type="Animation" id="Animation_8ymkn"]
+resource_name = "idle"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GrabberJar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -3), Vector2(1, 2), Vector2(1, -3), Vector2(1, 2), Vector2(1, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GrabberJar:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, 0.0, -0.261799, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GrabberJar/TentacleRoot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, 0.0, -0.261799, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GrabberJar/TentacleRoot/TentacleSection1:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.261799, 0.0, -0.261799, 0.0, 0.261799]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.55, 1.05, 1.55, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.20944, 0.261799, 0.0, -0.261799, 0.0, 0.20944]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2/TentacleSection3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6, 1.1, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.15708, 0.261799, 0.0, -0.261799, 0.0, 0.15708]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2/TentacleSection3/TentacleSection4:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.65, 1.15, 1.65, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.10472, 0.261799, 0.0, -0.261799, 0.0, 0.10472]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GrabberJar/TentacleRoot2/Tentacle2Section1:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.261799]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GrabberJar/TentacleRoot2/Tentacle2Section1/Tentacle2Section2:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.20944]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("GrabberJar/TentacleRoot2/Tentacle2Section1/Tentacle2Section2/Tentacle2Section3:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15708]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("GrabberJar/TentacleRoot2/Tentacle2Section1/Tentacle2Section2/Tentacle2Section3/Tentacle2Section4:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.10472]
+}
+
+[sub_resource type="Animation" id="Animation_cp4oi"]
+resource_name = "walk"
+step = 0.05
+
+[sub_resource type="Animation" id="Animation_ejwgs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GrabberJar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GrabberJar:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GrabberJar/TentacleRoot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GrabberJar/TentacleRoot/TentacleSection1:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.261799]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.20944]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2/TentacleSection3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15708]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2/TentacleSection3/TentacleSection4:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.10472]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vjs7f"]
+_data = {
+"RESET": SubResource("Animation_ejwgs"),
+"idle": SubResource("Animation_8ymkn"),
+"walk": SubResource("Animation_cp4oi")
+}
+
+[node name="Grabber" type="Node2D"]
+script = ExtResource("1_kgsai")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.239216, 0.239216, 0.239216, 1)
+position = Vector2(0, 19)
+scale = Vector2(0.920002, 0.72)
+texture = ExtResource("2_qmwcd")
+
+[node name="GrabberJar" type="Sprite2D" parent="."]
+position = Vector2(1, -3)
+texture = ExtResource("1_a40da")
+
+[node name="TentacleRoot" type="Marker2D" parent="GrabberJar"]
+position = Vector2(-1, -28)
+
+[node name="TentacleSection" type="Sprite2D" parent="GrabberJar/TentacleRoot"]
+position = Vector2(0, -6)
+texture = ExtResource("3_wq3dy")
+
+[node name="TentacleSection1" type="Marker2D" parent="GrabberJar/TentacleRoot"]
+position = Vector2(0, -12)
+rotation = 0.261799
+
+[node name="TentacleSection" type="Sprite2D" parent="GrabberJar/TentacleRoot/TentacleSection1"]
+position = Vector2(0, -6)
+texture = ExtResource("3_wq3dy")
+
+[node name="TentacleSection2" type="Marker2D" parent="GrabberJar/TentacleRoot/TentacleSection1"]
+position = Vector2(0, -14)
+rotation = 0.20944
+
+[node name="TentacleSection" type="Sprite2D" parent="GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2"]
+position = Vector2(0, -6)
+texture = ExtResource("3_wq3dy")
+
+[node name="TentacleSection3" type="Marker2D" parent="GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2"]
+position = Vector2(0, -13)
+rotation = 0.15708
+
+[node name="TentacleSection" type="Sprite2D" parent="GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2/TentacleSection3"]
+position = Vector2(0, -6)
+texture = ExtResource("3_wq3dy")
+
+[node name="TentacleSection4" type="Marker2D" parent="GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2/TentacleSection3"]
+position = Vector2(0, -12)
+rotation = 0.10472
+
+[node name="TentacleSection" type="Sprite2D" parent="GrabberJar/TentacleRoot/TentacleSection1/TentacleSection2/TentacleSection3/TentacleSection4"]
+position = Vector2(0, -6)
+texture = ExtResource("3_wq3dy")
+
+[node name="TentacleRoot2" type="Marker2D" parent="GrabberJar"]
+position = Vector2(-5, -28)
+
+[node name="TentacleSection" type="Sprite2D" parent="GrabberJar/TentacleRoot2"]
+position = Vector2(0, -6)
+texture = ExtResource("3_wq3dy")
+
+[node name="Tentacle2Section1" type="Marker2D" parent="GrabberJar/TentacleRoot2"]
+position = Vector2(0, -12)
+rotation = 0.261799
+
+[node name="TentacleSection" type="Sprite2D" parent="GrabberJar/TentacleRoot2/Tentacle2Section1"]
+position = Vector2(0, -6)
+texture = ExtResource("3_wq3dy")
+
+[node name="Tentacle2Section2" type="Marker2D" parent="GrabberJar/TentacleRoot2/Tentacle2Section1"]
+position = Vector2(0, -14)
+rotation = 0.20944
+
+[node name="TentacleSection" type="Sprite2D" parent="GrabberJar/TentacleRoot2/Tentacle2Section1/Tentacle2Section2"]
+position = Vector2(0, -6)
+texture = ExtResource("3_wq3dy")
+
+[node name="Tentacle2Section3" type="Marker2D" parent="GrabberJar/TentacleRoot2/Tentacle2Section1/Tentacle2Section2"]
+position = Vector2(0, -13)
+rotation = 0.15708
+
+[node name="TentacleSection" type="Sprite2D" parent="GrabberJar/TentacleRoot2/Tentacle2Section1/Tentacle2Section2/Tentacle2Section3"]
+position = Vector2(0, -6)
+texture = ExtResource("3_wq3dy")
+
+[node name="Tentacle2Section4" type="Marker2D" parent="GrabberJar/TentacleRoot2/Tentacle2Section1/Tentacle2Section2/Tentacle2Section3"]
+position = Vector2(0, -12)
+rotation = 0.10472
+
+[node name="TentacleSection" type="Sprite2D" parent="GrabberJar/TentacleRoot2/Tentacle2Section1/Tentacle2Section2/Tentacle2Section3/Tentacle2Section4"]
+position = Vector2(0, -6)
+texture = ExtResource("3_wq3dy")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="GrabberJar"]
+position = Vector2(-1, -28)
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_v6g23")
+texture = ExtResource("3_x5bh8")
+lifetime = 2.0
+explosiveness = 0.1
+randomness = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_vjs7f")
+}

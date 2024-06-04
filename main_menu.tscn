@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://3lf1u5n0q7po"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_fuy3d"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_fuy3d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 692.0
+offset_top = 374.0
+offset_right = 1166.0
+offset_bottom = 561.0
+
+[node name="MenuButton" type="MenuButton" parent="."]
+offset_left = 692.0
+offset_top = 374.0
+offset_right = 1164.0
+offset_bottom = 564.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 81
+text = "Start Game"
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

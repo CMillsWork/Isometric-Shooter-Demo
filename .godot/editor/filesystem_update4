@@ -1,0 +1,13 @@
+res://assets/characters/grabber/grabber.tscn
+res://game_controller.tscn
+res://main_menu.tscn
+res://level_1_1.tscn
+res://mobs/grabber.tscn
+res://mobs/slime.tscn
+res://assets/characters/slime/slime.tscn
+res://mobs/grabber.gd
+res://living_entity.tscn
+res://LivingEntity.gd
+res://player.tscn
+res://player.gd
+res://mobs/slime.gd

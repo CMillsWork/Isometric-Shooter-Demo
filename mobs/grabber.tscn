@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bawj0k4vhwidd"]
+
+[ext_resource type="Script" path="res://mobs/grabber.gd" id="1_urdlo"]
+[ext_resource type="PackedScene" uid="uid://nx15haf0jhvc" path="res://assets/characters/grabber/grabber.tscn" id="2_a817b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fagv7"]
+radius = 9.90228
+height = 58.1457
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ts6r"]
+radius = 738.003
+
+[node name="Grabber" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_urdlo")
+
+[node name="Grabber" parent="." instance=ExtResource("2_a817b")]
+unique_name_in_owner = true
+position = Vector2(-1, -25)
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(2.95585e-12, -15)
+rotation = 1.5708
+scale = Vector2(1.91875, 1.13508)
+shape = SubResource("CapsuleShape2D_fagv7")
+
+[node name="SightRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightRange"]
+shape = SubResource("CircleShape2D_1ts6r")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+path_desired_distance = 4.0
+target_desired_distance = 4.0
+path_max_distance = 10.0
+navigation_layers = 4
+avoidance_layers = 0
+avoidance_mask = 0
+debug_enabled = true
+
+[node name="WanderTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="area_entered" from="SightRange" to="." method="_on_sight_range_area_entered"]
+[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://42ih3iq3tg3l"]
+
+[ext_resource type="Script" path="res://equipment/weapons/cooler_gun.gd" id="1_3s5w8"]
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://assets/pistol/pistol.png" id="2_p5vc3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n63p3"]
+radius = 745.489
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4jve"]
+radius = 95.0474
+
+[node name="CoolerGun" type="Area2D"]
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3s5w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n63p3")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+position = Vector2(87.8846, -27.5577)
+scale = Vector2(3.26923, 3.26923)
+
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(-20.7647, 8.42942)
+scale = Vector2(0.548446, 0.406815)
+texture = ExtResource("2_p5vc3")
+
+[node name="Muzzle" type="Marker2D" parent="WeaponPivot/Pistol"]
+unique_name_in_owner = true
+position = Vector2(25.6554, -9.96261)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="InteractionRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
+shape = SubResource("CircleShape2D_n4jve")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="InteractionRange" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionRange" to="." method="_on_body_exited"]
